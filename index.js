@@ -11,7 +11,7 @@ app.use(bodyParser.json({extended: true}))
 app.use(bodyParser.urlencoded({ extended: true }))
 const PORT = process.env.PORT || 8000;
 // app.use(cors({ credentials: true, origin: 'http://localhost:3000' }))
-app.use(cors({ credentials: true, origin: 'https://eloquent-selkie-9d0703.netlify.app/' }))
+app.use(cors({ credentials: true, origin: 'https://eloquent-selkie-9d0703.netlify.app' }))
 
 
 connecting();
