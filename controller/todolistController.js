@@ -10,7 +10,6 @@ export const addTask = async (req, res) => {
   await newtask.save();
 
 
-
   const allTask = await taskList.find().sort({ _id: -1 });
   res.status(200).json({
     success: true,
@@ -23,7 +22,12 @@ export const addTask = async (req, res) => {
 
 
 export const allTask = async (req, res) => {
-  const allTask = await taskList.find().sort({ _id: -1 });
+
+
+//   const { job } = req.body;
+// console.log(job);
+
+  const allTask = await taskList.find({ job: 'undone' }).sort({ _id: -1 });
   res.status(200).json({
     success: true,
     allTask
@@ -70,7 +74,7 @@ export const delTask = async (req, res) => {
   try {
     const del = await taskList.findByIdAndDelete(id);
 
-    const allTask = await taskList.find().sort({ _id: -1 });
+    const allTask = (await taskList.find().sort({ _id: -1 }));
     res.status(200).json({
       success: true,
       msg: "task deleted",
