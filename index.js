@@ -11,7 +11,7 @@ app.use(bodyParser.json({extended: true}))
 app.use(bodyParser.urlencoded({ extended: true }))
 const PORT = process.env.PORT || 8000;
 // app.use(cors({ credentials: true, origin: 'http://localhost:3000' }))
-app.use(cors({ credentials: true, origin: 'lazytodo77.netlify.app' }))
+app.use(cors({ credentials: true, origin: 'https://lazytodo77.netlify.app' }))
 
 
 connecting();
