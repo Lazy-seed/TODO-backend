@@ -24,10 +24,10 @@ export const addTask = async (req, res) => {
 export const allTask = async (req, res) => {
 
 
-//   const { job } = req.body;
-// console.log(job);
+  //   const { job } = req.body;
+  // console.log(job);
 
-  const allTask = await taskList.find({ job: 'undone' }).sort({ _id: -1 });
+  const allTask = await taskList.find().sort({ _id: -1 });
   res.status(200).json({
     success: true,
     allTask
@@ -89,3 +89,52 @@ export const delTask = async (req, res) => {
 
   }
 }
+
+
+
+
+
+export const filterTask = async (req, res) => {
+
+
+  const {job}  = req.body;
+
+  if (job === 'done' || job === 'undone') {
+    const filterJob = await taskList.find({ job: job }).sort({ _id: -1 });
+    res.status(200).json({
+      msg: `fintered job`,
+      filterJob
+    })
+  }
+  else {
+    const filterJob = await taskList.find().sort({ _id: -1 });
+    res.status(200).json({
+      msg: `fintered job`,
+      filterJob
+    })
+  }
+
+
+
+
+
+
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
